@@ -5,20 +5,22 @@ namespace LouisGJBertrand\DiscordWebhook;
 class DiscordWebhook
 {
 
+    static bool $SECURE_CURL_CONNECTION = false;
+
     static public function GenerateEmbed(
         string $title = null,
         string $type = null,
         string $description = null,
         string $url = null,
-        string $timestamp = null,
-        string $color= null,
-        string $footer= null,
-        string $image= null,
-        string $thumbnail= null,
-        string $video= null,
-        string $provider= null,
-        string $author= null,
-        string $fields= null): array
+        int $timestamp = null,
+        int $color= null,
+        array $footer= null,
+        array $image= null,
+        array $thumbnail= null,
+        array $video= null,
+        array $provider= null,
+        array $author= null,
+        array $fields= null): array
     {
 
         $embeded = [];
@@ -99,7 +101,8 @@ class DiscordWebhook
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        if(!DiscordWebhook::$SECURE_CURL_CONNECTION)
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
 
         /**
