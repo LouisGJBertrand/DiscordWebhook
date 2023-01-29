@@ -1,0 +1,16 @@
+{
+    "name": "louisgjbertrand/discordwebhook",
+    "autoload": {
+        "psr-4": {
+            "LouisGJBertrand\\DiscordWebhook\\": "src/louisgjbertrand/discordwebhook"
+        }
+    },
+    "authors": [
+        {
+            "name": "Louis BERTRAND",
+            "email": "contact@pylott.yt"
+        }
+    ],
+    "require": {
+    }
+}
